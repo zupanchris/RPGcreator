@@ -30,19 +30,19 @@ include_once "config.php";
 				<div class="inner">
 
 					<header>
-						<h2>TWENTY</h2>
+						<h2>Welcome</h2>
 					</header>
 					<p>
-						This is <strong>Twenty</strong>, a free
+						Create your <strong>FIFTH EDITION</strong>
 						<br />
-						responsive template
+						Dungeons and Dragons
 						<br />
-						by <a href="http://html5up.net">HTML5 UP</a>.
+						character fast and easy.
 					</p>
 					<footer>
 						<ul class="buttons vertical">
 							<li>
-								<a href="#main" class="button fit scrolly">Tell Me More</a>
+								<a href="creator/index.php" class="button fit scrolly">Character Creator</a>
 							</li>
 						</ul>
 					</footer>
@@ -55,7 +55,7 @@ include_once "config.php";
 			<article id="main">
 
 				<header class="special container">
-					<span class="icon fa-bar-chart-o"></span>
+					<span class="icon"><img src="images/pic01.png" height="60" /img></span>
 					<h2>As this is my <strong>twentieth</strong> freebie for HTML5 UP
 					<br />
 					I decided to give it a really creative name.</h2>

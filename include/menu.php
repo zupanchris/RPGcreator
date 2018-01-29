@@ -3,10 +3,10 @@
 <ul>
 	
 	<?php 
-	menu($sourceAPP . "index.php", "Home");
-	menu($sourceAPP . "creator/index.php", "Creator");
+	menu($sourceAPP . "", "Home");
+	menu($sourceAPP . "creator/", "Creator");
 	if(isset($_SESSION[$appID."authorized"])):
-	menu($sourceAPP . "profile/index.php", "Profile");
+	menu($sourceAPP . "profile/", "Profile");
 	menu($sourceAPP . "private/dashboard.php", "Dashboard");?>							
 	<?php endif; ?>
 	<?php if(!isset($_SESSION[$appID."authorized"])): ?>
