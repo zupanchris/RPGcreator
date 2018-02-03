@@ -28,11 +28,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 			<article id="main">
 
 				<header class="special container">
-					<span class="icon fa"><img src="../images/pic01.png" height="60" /img></span>
-					<h2>This is your <strong>Creator</strong></h2>
-					<p>
-						Create your character quick and easy just bellow.
-					</p>
+					<span class="icon fa"><img src="../images/pic01.png" height="60" /img></span>					
 				</header>
 
 				<!-- Creator Form -->
