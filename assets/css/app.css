@@ -13,11 +13,11 @@ border-radius: 0px;
 border-style: solid;
 border-width: 1px;
 }
-#score{
+.score{
 	max-width: 100%;
 	text-align: right;
 }
-#skills{
+.skills{
 	float: left;
 	text-align: left;
 }

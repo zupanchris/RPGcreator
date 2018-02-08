@@ -90,7 +90,7 @@
 					value="<?php echo getValue("characterAge"); ?>"/>
 				</div>
 				<label><strong>Saving Throws</strong></label>
-				<div class="form-group" id="skills">
+				<div class="form-group skills">
 					<?php 
 					$savingthrow = $connection->prepare("select * from savingthrow;");
 					$savingthrow->execute();
@@ -107,14 +107,14 @@
 				<div class="form-group">
 					<label><strong>Abilities</strong></label>
 					<br />
-					<br />
 					<?php 
 					$abilityscore = $connection->prepare("select * from abilityscore;");
 					$abilityscore->execute();
 					$results = $abilityscore->fetchAll(PDO::FETCH_OBJ);
 					foreach ($results as $option):
 					?>
-					<input name="<?php echo $option->id ?>" value="<?php echo getValue("$option->id"); ?>" id="score" type="number"><?php echo $option->name . "<br />"; ?></>							
+					<?php echo $option->name . "<br />"; ?>
+					<input name="<?php echo $option->id ?>" value="<?php echo getValue("$option->id"); ?>" class="score" type="number"></>							
 					<?php endforeach; ?>
 				</div>
 			</div>
@@ -123,27 +123,27 @@
 					<label><strong>Bonus</strong></label>
 					<br />
 					<br />
-					<input id="score" type="number" name="strenghtBonus"
+					<input class="score" type="number" name="strenghtBonus"
 					value="<?php echo strBonus("characterRace") ? strBonus("characterRace") : ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="dexterityBonus"
+					<input class="score" type="number" name="dexterityBonus"
 					value="<?php echo dexBonus("characterRace") ? dexBonus("characterRace") : ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="constitutionBonus"
+					<input class="score" type="number" name="constitutionBonus"
 					value="<?php echo conBonus("characterRace") ? conBonus("characterRace") : ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="intelligenceBonus"
+					<input class="score" type="number" name="intelligenceBonus"
 					value="<?php echo intBonus("characterRace") ? intBonus("characterRace") : ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="wisdomBonus"
+					<input class="score" type="number" name="wisdomBonus"
 					value="<?php echo wisBonus("characterRace") ? wisBonus("characterRace") : ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="charismaBonus"
+					<input class="score" type="number" name="charismaBonus"
 					value="<?php echo chaBonus("characterRace") ? chaBonus("characterRace") : ""; ?>" readonly/>
 				</div>
 			</div>
@@ -160,27 +160,27 @@
 					<label><strong>Scores</strong></label>
 					<br />
 					<br />
-					<input id="score" type="number" name="strenghtScore"
+					<input class="score" type="number" name="strenghtScore"
 					value="<?php echo array_sum($strArray) ? array_sum($strArray): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="dexterityScore"
+					<input class="score" type="number" name="dexterityScore"
 					value="<?php echo array_sum($dexArray) ? array_sum($dexArray): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="constitutionScore"
+					<input class="score" type="number" name="constitutionScore"
 					value="<?php echo array_sum($conArray) ? array_sum($conArray): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="intelligenceScore"
+					<input class="score" type="number" name="intelligenceScore"
 					value="<?php echo array_sum($intArray) ? array_sum($intArray): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="wisdomScore"
+					<input class="score" type="number" name="wisdomScore"
 					value="<?php echo array_sum($wisArray) ? array_sum($wisArray): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" type="number" name="charismaScore"
+					<input class="score" type="number" name="charismaScore"
 					value="<?php echo array_sum($chaArray) ? array_sum($chaArray): ""; ?>" readonly/>
 				</div>
 			</div>
@@ -189,33 +189,33 @@
 					<label><strong>Modifiers</strong></label>
 					<br />
 					<br />
-					<input id="score" name="strenghtMod" type="number"
+					<input class="score" name="strenghtMod" type="number"
 					value="<?php echo strMod("strenghtScore") ? strMod("strenghtScore"): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" name="dexterityMod" type="number"
+					<input class="score" name="dexterityMod" type="number"
 					value="<?php echo dexMod("dexterityScore") ? dexMod("dexterityScore"): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" name="constitutionMod" type="number"
+					<input class="score" name="constitutionMod" type="number"
 					value="<?php echo conMod("constitutionScore") ? conMod("constitutionScore"): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" name="intelligenceMod" type="number"
+					<input class="score" name="intelligenceMod" type="number"
 					value="<?php echo intMod("intelligenceScore") ? intMod("intelligenceScore"): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" name="wisdomMod" type="number"
+					<input class="score" name="wisdomMod" type="number"
 					value="<?php echo wisMod("wisdomScore") ? wisMod("wisdomScore"): ""; ?>" readonly/>
 					<br />
 					<br />
-					<input id="score" name="charismaMod" type="number"
+					<input class="score" name="charismaMod" type="number"
 					value="<?php echo chaMod("charismaScore") ? chaMod("charismaScore"): ""; ?>" readonly/>
 				</div>
 			</div>
 			<div class="2u 12u(narrower)">
 				<label><strong>Skills</strong></label>
-				<div class="form-group" id="skills">
+				<div class="form-group skills">
 					<br />
 					<?php 
 					$skill = $connection->prepare("select * from skill;");
