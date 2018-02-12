@@ -63,9 +63,9 @@ validation();
                                                 <td><?php echo $option -> firstName; ?></td>
                                                 <td><?php echo $option -> lastName; ?></td>
                                                 <td>
-                                                	<a href="#" title="Edit"><i class="far fa-edit fa-2x"></i></a>
-													<a href="#" title="Delete"><i class="far fa-trash-alt fa-2x"></i></a>
-													<a href="#" title="Ban"><i class="fas fa-ban fa-2x" style="color: #b74d4d"></i></a> 
+                                                	<a href="#" title="Edit"><i class="far fa-edit"></i></a>
+													<a href="#" title="Delete"><i class="far fa-trash-alt"></i></a>
+													<a href="#" title="Ban"><i class="fas fa-ban" style="color: #b74d4d"></i></a> 
                                                 </td>  
                                             </tr>  
                                         <?php endforeach; ?>  

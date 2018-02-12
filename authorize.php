@@ -8,7 +8,7 @@ if($_POST["username"]==="admin" && $_POST["password"]==="admin"){
 	include_once "config.php";
 	$_SESSION[$appID."authorized"]=$_POST["username"];
 	header("location: private/dashboard.php");
-}if($_POST["username"]==="edunova" && $_POST["password"]==="edunova"){
+}else if($_POST["username"]==="edunova" && $_POST["password"]==="edunova"){
 	include_once "config.php";
 	$_SESSION[$appID."authorized"]=$_POST["username"];
 	header("location: profile/index.php");

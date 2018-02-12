@@ -27,9 +27,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 			<!-- Main -->
 			<article id="main">
 
-				<header class="special container">
-					<span class="icon fa"><img src="../images/pic01.png" height="60" /img></span>					
-				</header>
+				
 
 				<!-- Creator Form -->
 				<?php include_once "../include/creator.php" ?>

@@ -8,6 +8,7 @@ $sourceAPP = "/RPGcreator/";
 $nameAPP = "RPG Character Creator";
 $appID="RPGcharacterAPP";
 $dev=true;
+$pageResults = 8;
 
 $host="sql204.byethost3.com";
 $dbname="b3_21045350_dndchar";

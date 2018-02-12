@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Admin Page</a>
+            <a class="navbar-brand" href="<?php echo "$sourceAPP" . "private/dashboard.php"; ?>">Admin Page</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="2u 12u(narrower)">
 				<div class="form-group">
-					<label><strong>Basic Info</strong></label>
+					<strong>Basic Info</strong>
 					<br />
 					<label>Character Name</label>
 					<br />
@@ -105,7 +105,7 @@
 			</div>			
 			<div class="1u 12u(narrower)">
 				<div class="form-group">
-					<label><strong>Abilities</strong></label>
+					<strong>Abilities</strong>
 					<br />
 					<?php 
 					$abilityscore = $connection->prepare("select * from abilityscore;");
@@ -120,7 +120,7 @@
 			</div>
 			<div class="1u 12u(narrower)">
 				<div class="form-group">
-					<label><strong>Bonus</strong></label>
+					<strong>Bonus</strong>
 					<br />
 					<br />
 					<input class="score" type="number" name="strenghtBonus"
@@ -157,7 +157,7 @@
 			?>
 			<div class="1u 12u(narrower)">
 				<div class="form-group">
-					<label><strong>Scores</strong></label>
+					<strong>Scores</strong>
 					<br />
 					<br />
 					<input class="score" type="number" name="strenghtScore"
@@ -186,7 +186,7 @@
 			</div>
 			<div class="1u 12u(narrower)">
 				<div class="form-group">
-					<label><strong>Modifiers</strong></label>
+					<strong>Modifiers</strong>
 					<br />
 					<br />
 					<input class="score" name="strenghtMod" type="number"
@@ -214,7 +214,7 @@
 				</div>
 			</div>
 			<div class="2u 12u(narrower)">
-				<label><strong>Skills</strong></label>
+				<strong>Skills</strong>
 				<div class="form-group skills">
 					<br />
 					<?php 
