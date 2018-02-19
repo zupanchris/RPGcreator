@@ -27,7 +27,12 @@ user int not null
 create table race(
 id int not null primary key auto_increment,
 name varchar(250) not null,
-abilityscore varchar(250) not null,
+strenght int not null,
+dexterity int not null,
+constitution int not null,
+intelligence int not null,
+wisdom int not null,
+charisma int not null,
 age varchar(250),
 height varchar(250),
 weight varchar(250),
@@ -41,7 +46,13 @@ create table subrace(
 id int not null primary key auto_increment,
 race int not null,
 name varchar(250) not null,
-abilityscore varchar(250) not null,
+strenght int not null,
+dexterity int not null,
+constitution int not null,
+intelligence int not null,
+wisdom int not null,
+charisma int not null,
+abilityscoreBonus int not null,
 trait varchar(250) not null
 );
 
@@ -106,6 +117,7 @@ name varchar(250) not null,
 score int not null
 );
 
+
 alter table characterdnd add foreign key (alingment) references alingment(id);
 alter table characterdnd add foreign key (subrace) references subrace(id);
 alter table characterdnd add foreign key (background) references background(id);
@@ -164,39 +176,45 @@ insert into alingment
 (null, "Chaotic Evil");
 
 insert into race
-(id,name,abilityscore,age,height,weight,size,speed,language,trait) values
+(id,name,strenght,dexterity,constitution,intelligence,wisdom,charisma,age,height,weight,size,speed,language,trait) values
 
-(null,'Dwarf','Constitution +2','50-350','4-5 ft','150 lb','Medium',25,'Common, Dwarvish',
+(null,'Dwarf',0,0,2,0,0,0,'50-350','4-5 ft','150 lb','Medium',25,'Common, Dwarvish',
 'Darkvision, Dwarven Resilience, Dwarven Combat Training, Tool Proficiency, Stonecunning'),
-(null,'Elf','Dexterity +2','100-750','5-6 ft','slender','Medium',30,'Common, Elvish',
+(null,'Elf',0,2,0,0,0,0,'100-750','5-6 ft','slender','Medium',30,'Common, Elvish',
 'Darkvision, Keen Senses, Fey Ancestry, Trance'),
-(null,'Halfling','Dexterity +2','20-150','3 ft','40 lb','Small',25,'Common, Halfling',
+(null,'Halfling',0,2,0,0,0,0,'20-150','3 ft','40 lb','Small',25,'Common, Halfling',
 'Lucky, Brave, Halfling Nimbleness'),
-(null,'Human','Each score +1','18-100','5-6 ft','vary','Medium',30,
+(null,'Human',1,1,1,1,1,1,'18-100','5-6 ft','vary','Medium',30,
 'Common, One extra language','None'),
-(null,'Dragonborn','Strenght +2, Charisma +1','15-80','6-7 ft','250 lb','Medium',30,
+(null,'Dragonborn',2,0,0,0,0,1,'15-80','6-7 ft','250 lb','Medium',30,
 'Common, Draconic','Draconic Ancestry, Breath Weapon, Damage Resistance'),
-(null,'Gnome','Intelligence +2','40-450','3-4 ft','40 lb','Small',25,'Common, Gnomish',
+(null,'Gnome',0,0,0,2,0,0,'40-450','3-4 ft','40 lb','Small',25,'Common, Gnomish',
 'Gnome Cunning'),
-(null,'Half-Elf','Charisma +2, Two other abilities +1','20-180','5-6 ft','vary','Medium',30,
+(null,'Half-Elf',0,0,0,0,0,2,'20-180','5-6 ft','vary','Medium',30,
 'Common, Elvish, One extra language','Darkvision, Fey Ancestry, Skill Versatility'),
-(null,'Half-Orc','Strenght +2, Constitution +1','14-75','5-7 ft','heavy','Medium',30,
+(null,'Half-Orc',2,1,0,0,0,0,'14-75','5-7 ft','heavy','Medium',30,
 'Common, Orc','Darkvision, Menacing, Relentless Endurance, Savage Attacks'),
-(null,'Tiefling','Intelligence +1,Charisma +2','20-110','5-6 ft','vary','Medium',30,
+(null,'Tiefling',0,0,0,1,0,2,'20-110','5-6 ft','vary','Medium',30,
 'Common, Infernal','Darkvision, Hellish Resistance, Infernal Legacy');
 
-insert into subrace
-(id,race,name,abilityscore,trait) values
 
-(null,1,'Hill Dwarf','Wisdom +1','Dwarven Toughness'),
-(null,1,'Mountain Dwarf','Strenght +2','Dwarven Armor Training'),
-(null,2,'High Elf','Intelligence +1','Elf Weapon Training, Cantrip, Extra Language'),
-(null,2,'Wood Elf','Wisdom +1','Elf Weapon Training, Fleet of Foot, Mask of the Wild'),
-(null,2,'Dark Elf (Drow)','Charisma +1','Superior Darkvision, Sunlight Sensitivity, Drow Magic, Drow Weapon Training'),
-(null,3,'Lightfoot Halfling','Charisma +1','Naturally Stealthy'),
-(null,3,'Stout Halfling','Constitution +1','Stout Resilience'),
-(null,6,'Forest Gnome','Dexterity +1','Natural Illusionist, Speak with Small Beasts'),
-(null,6,'Rock Gnome','Constitution +1','Artificers Lore, Tinker');
+insert into subrace
+(id,race,name,strenght,dexterity,constitution,intelligence,wisdom,charisma,trait) values
+
+(null,1,'Dwarf - Hill',0,0,0,0,1,0,'Dwarven Toughness'),
+(null,1,'Dwarf - Mountain',2,0,0,0,0,0,'Dwarven Armor Training'),
+(null,2,'Elf - High',0,0,0,1,0,0,'Elf Weapon Training, Cantrip, Extra Language'),
+(null,2,'Elf - Wood',0,0,0,0,1,0,'Elf Weapon Training, Fleet of Foot, Mask of the Wild'),
+(null,2,'Elf - Dark (Drow)',0,0,0,0,0,1,'Superior Darkvision, Sunlight Sensitivity, Drow Magic, Drow Weapon Training'),
+(null,3,'Halfling - Lightfoot',0,0,0,0,0,1,'Naturally Stealthy'),
+(null,3,'Halfling - Stout',0,0,1,0,0,0,'Stout Resilience'),
+(null,4,'Human - no Subrace',0,0,0,0,0,0,""),
+(null,5,'Dragonborn - no Subrace',0,0,0,0,0,0,""),
+(null,6,'Gnome - Forest',0,1,0,0,0,0,'Natural Illusionist, Speak with Small Beasts'),
+(null,6,'Gnome - Rock',0,0,1,0,0,0,'Artificers Lore, Tinker'),
+(null,7,'Half-Elf - no Subrace',0,0,0,0,0,0,""),
+(null,8,'Half-Orc - no Subrace',0,0,0,0,0,0,""),
+(null,9,'Tiefling - no Subrace',0,0,0,0,0,0,"");
 
 
 insert into class

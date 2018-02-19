@@ -1,4 +1,4 @@
-<form method="get" enctype="multipart/form-data">
+<form method="get" enctype="multipart/form-data">	
 	<section class="wrapper style1 container special">
 		<div class="row">
 			<div class="2u 12u(narrower)">
@@ -25,6 +25,20 @@
 					foreach ($results as $option):
 					?>
 							<option <?php echo isset($_GET["characterRace"]) && $_GET["characterRace"]==="$option->id" ? " selected=\"selected\" " : "" ?> value="<?php echo $option->id ?>"><?php echo $option->name; ?></option>							
+					<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="subrace"><strong>Subrace</strong></label>
+					<br />					
+					<select class="form-control" name="characterSubrace">
+					<?php 
+					$subrace = $connection->prepare("select * from subrace;");
+					$subrace->execute();
+					$results = $subrace->fetchAll(PDO::FETCH_OBJ);
+					foreach ($results as $option):
+					?>
+							<option title="<?php echo "Strenght : " . $option -> strenght . "\n" . "Dexterity : " . $option -> dexterity . "\n" . "Constitution : " . $option -> constitution . "\n" . "Intelligence : " . $option -> intelligence . "\n" . "Wisdom : " . $option -> wisdom . "\n" . "Charisma : " . $option -> charisma . "\n" . "Traits : " . $option -> trait; ?>"<?php echo isset($_GET["characterSubrace"]) && $_GET["characterSubrace"]==="$option->id" ? " selected=\"selected\" " : "" ?> value="<?php echo $option->id ?>"><?php echo $option -> name; ?></option>							
 					<?php endforeach; ?>
 					</select>
 				</div>
@@ -114,46 +128,46 @@
 					foreach ($results as $option):
 					?>
 					<?php echo $option->name . "<br />"; ?>
-					<input name="<?php echo $option->id ?>" value="<?php echo getValue("$option->id"); ?>" class="score" type="number"></>							
+					<input name="<?php echo $option->name?>" value="<?php echo isset($_GET['$option->name . "Ability"']) ? $_GET['$option->name . "Ability"'] : ""; ?>" class="score" type="number"></>							
 					<?php endforeach; ?>
 				</div>
 			</div>
 			<div class="1u 12u(narrower)">
+				<strong>Bonus</strong>
+				<br />
 				<div class="form-group">
-					<strong>Bonus</strong>
+					<?php
+$racebonus = $connection->prepare("select
+a.strenght as 'RaceStr', a.dexterity as 'RaceDex', a.constitution as 'RaceCon', a.intelligence as 'RaceInt', a.wisdom as 'RaceWis', a.charisma as 'RaceCha',
+b.strenght as 'SubraceStr', b.dexterity as 'SubraceDex', b.constitution as 'SubraceCon', b.intelligence as 'SubraceInt', b.wisdom as 'SubraceWis', b.charisma as 'SubraceCha'
+from race a inner join subrace b on a.id=b.race where b.id='" . $_GET['characterSubrace'] . "' and a.id='" . $_GET['characterRace'] . "'");
+$racebonus->execute();
+$results = $racebonus->fetchAll(PDO::FETCH_OBJ);
+foreach ($results as $option):
+					?>
 					<br />
+					<input name="strenghtBonus" value="<?php echo ($option->RaceStr)+($option->SubraceStr); ?>" class="score" type="number" readonly></>
+					<br /><br />
+					<input name="dexterityBonus" value="<?php echo ($option->RaceDex)+($option->SubraceDex); ?>" class="score" type="number" readonly></>
+					<br /><br />
+					<input name="constitutionBonus" value="<?php echo ($option->RaceCon)+($option->SubraceCon); ?>" class="score" type="number" readonly></>
+					<br /><br />
+					<input name="intelligenceBonus" value="<?php echo ($option->RaceInt)+($option->SubraceInt); ?>" class="score" type="number" readonly></>
+					<br /><br />
+					<input name="wisdomBonus" value="<?php echo ($option->RaceWis)+($option->SubraceWis); ?>" class="score" type="number" readonly></>
+					<br /><br />
+					<input name="charismaBonus" value="<?php echo ($option->RaceCha)+($option->SubraceCha); ?>" class="score" type="number" readonly></>
 					<br />
-					<input class="score" type="number" name="strenghtBonus"
-					value="<?php echo strBonus("characterRace") ? strBonus("characterRace") : ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="dexterityBonus"
-					value="<?php echo dexBonus("characterRace") ? dexBonus("characterRace") : ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="constitutionBonus"
-					value="<?php echo conBonus("characterRace") ? conBonus("characterRace") : ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="intelligenceBonus"
-					value="<?php echo intBonus("characterRace") ? intBonus("characterRace") : ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="wisdomBonus"
-					value="<?php echo wisBonus("characterRace") ? wisBonus("characterRace") : ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="charismaBonus"
-					value="<?php echo chaBonus("characterRace") ? chaBonus("characterRace") : ""; ?>" readonly/>
+					<?php endforeach; ?>
 				</div>
 			</div>
 			<?php
-			$strArray = array(getValue("strenghtAbility"), getValue("strenghtBonus"));
-			$dexArray = array(getValue("dexterityAbility"), getValue("dexterityBonus"));
-			$conArray = array(getValue("constitutionAbility"), getValue("constitutionBonus"));
-			$intArray = array(getValue("intelligenceAbility"), getValue("intelligenceBonus"));
-			$wisArray = array(getValue("wisdomAbility"), getValue("wisdomBonus"));
-			$chaArray = array(getValue("charismaAbility"), getValue("charismaBonus"));
+			$strArray = array(getValue("StrenghtAbility"), getValue("strenghtBonus"));
+			$dexArray = array(getValue("DexterityAbility"), getValue("dexterityBonus"));
+			$conArray = array(getValue("ConstitutionAbility"), getValue("constitutionBonus"));
+			$intArray = array(getValue("IntelligenceAbility"), getValue("intelligenceBonus"));
+			$wisArray = array(getValue("WisdomAbility"), getValue("wisdomBonus"));
+			$chaArray = array(getValue("CharismaAbility"), getValue("charismaBonus"));
 			?>
 			<div class="1u 12u(narrower)">
 				<div class="form-group">
