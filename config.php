@@ -6,14 +6,22 @@ session_start();
 
 $sourceAPP = "/RPGcreator/";
 $nameAPP = "RPG Character Creator";
-$appID="RPGcharacterAPP";
-$dev=true;
+$appID = "RPGcharacterAPP";
 $pageResults = 8;
 
-$host="sql204.byethost3.com";
-$dbname="b3_21045350_dndchar";
-$dbuser="b3_21045350";
-$dbpass="cird.46P";
+if($_SERVER["HTTP_HOST"]==="zupanc.byethost3.com"){
+	$host="sql204.byethost3.com";
+	$dbname="b3_21045350_dndchar";
+	$dbuser="b3_21045350";
+	$dbpass="cird.46P";
+	$dev=false;
+}else{
+	$host="localhost";
+	$dbname="dndchar";
+	$dbuser="edunova";
+	$dbpass="edunova";
+	$dev=true;
+}
 
 try{
 	$connection = new PDO("mysql:host=" . $host . ";dbname=" . $dbname,$dbuser,$dbpass);

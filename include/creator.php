@@ -1,4 +1,4 @@
-<form method="get" enctype="multipart/form-data">	
+<form method="get" enctype="multipart/form-data" action="<?php action(); ?>">
 	<section class="wrapper style1 container special">
 		<div class="row">
 			<div class="2u 12u(narrower)">
@@ -9,10 +9,10 @@
 					<br />
 					<input type="text" name="characterName"
 					value="<?php echo getValue("characterName") ? getValue("characterName") : "Osnovni"; ?>" required />
-					<label>Height</label>
+					<label>Player Name</label>
 					<br />
-					<input type="number" name="characterHeight"
-					value="<?php echo getValue("characterHeight"); ?>"/>
+					<input type="text" name="playerName"
+					value="<?php echo getValue("playerName"); ?>" required />			
 				</div>
 				<div class="form-group">
 					<label for="race"><strong>Race</strong></label>
@@ -88,20 +88,28 @@
 				</div>
 			</div>
 			<div class="2u 12u(narrower)">
+				<strong>Racial & Class Stats</strong>	
 				<br />
 				<div class="form-group">
-					<label>Player Name</label>
+					<?php
+$racialStats = $connection->prepare("select age, height, weight from race where id='" . $_GET['characterRace'] . "'");
+$racialStats->execute();
+$results = $racialStats->fetchAll(PDO::FETCH_OBJ);
+foreach ($results as $option):
+					?>			
+					<label>Height</label>
 					<br />
-					<input type="text" name="playerName"
-					value="<?php echo getValue("playerName"); ?>"/>
+					<input class="score" type="number" name="characterHeight" placeholder="<?php echo $option->height; ?>"
+					value="<?php echo getValue("characterHeight"); ?>"/>
 					<label>Weight</label>
 					<br />
-					<input type="number" name="characterWeight"
+					<input class="score" type="number" name="characterWeight" placeholder="<?php echo $option->weight; ?>"
 					value="<?php echo getValue("characterWeight"); ?>"/>
 					<label>Age</label>
 					<br />
-					<input type="number" name="characterAge"
+					<input class="score" type="number" name="characterAge" placeholder="<?php echo $option->age; ?>"
 					value="<?php echo getValue("characterAge"); ?>"/>
+					<?php endforeach; ?>
 				</div>
 				<label><strong>Saving Throws</strong></label>
 				<div class="form-group skills">
@@ -111,8 +119,9 @@
 					$results = $savingthrow->fetchAll(PDO::FETCH_OBJ);
 					foreach ($results as $option):
 					?>
-					<input id="savingThrow" value="<?php echo $option->id ?>"
-					name="savingThrow[]" <?php echo checkboxMark("savingThrow","$option->id") ?> type="checkbox" /><?php echo $option->name . "<br />"; ?></>							
+					<input id="<?php echo $option->name ?>" value="<?php echo $option->id ?>"
+					name="savingThrow[]" <?php echo checkboxMark("savingThrow","$option->id") ?> type="checkbox"></>
+					<label for="<?php echo $option->name ?>"><?php echo $option->name . "<br />"; ?></label>
 					<?php endforeach; ?>
 				</div>
 
@@ -128,7 +137,7 @@
 					foreach ($results as $option):
 					?>
 					<?php echo $option->name . "<br />"; ?>
-					<input name="<?php echo $option->name?>" value="<?php echo isset($_GET['$option->name . "Ability"']) ? $_GET['$option->name . "Ability"'] : ""; ?>" class="score" type="number"></>							
+					<input name="<?php echo $option->name . "Ability"; ?>" value="<?php echo isset($_GET[$option->name . "Ability"]) ? $_GET[$option->name . "Ability"] : ""; ?>" class="score" type="number"></>							
 					<?php endforeach; ?>
 				</div>
 			</div>
@@ -172,59 +181,23 @@ foreach ($results as $option):
 			<div class="1u 12u(narrower)">
 				<div class="form-group">
 					<strong>Scores</strong>
-					<br />
-					<br />
-					<input class="score" type="number" name="strenghtScore"
-					value="<?php echo array_sum($strArray) ? array_sum($strArray): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="dexterityScore"
-					value="<?php echo array_sum($dexArray) ? array_sum($dexArray): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="constitutionScore"
-					value="<?php echo array_sum($conArray) ? array_sum($conArray): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="intelligenceScore"
-					value="<?php echo array_sum($intArray) ? array_sum($intArray): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="wisdomScore"
-					value="<?php echo array_sum($wisArray) ? array_sum($wisArray): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" type="number" name="charismaScore"
-					value="<?php echo array_sum($chaArray) ? array_sum($chaArray): ""; ?>" readonly/>
+					<?php score("strenghtScore",$strArray); ?>
+					<?php score("dexterityScore",$dexArray); ?>
+					<?php score("constitutionScore",$conArray); ?>	
+					<?php score("intelligenceScore",$intArray); ?>	
+					<?php score("wisdomScore",$wisArray); ?>	
+					<?php score("charismaScore",$chaArray); ?>	
 				</div>
 			</div>
 			<div class="1u 12u(narrower)">
 				<div class="form-group">
 					<strong>Modifiers</strong>
-					<br />
-					<br />
-					<input class="score" name="strenghtMod" type="number"
-					value="<?php echo strMod("strenghtScore") ? strMod("strenghtScore"): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" name="dexterityMod" type="number"
-					value="<?php echo dexMod("dexterityScore") ? dexMod("dexterityScore"): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" name="constitutionMod" type="number"
-					value="<?php echo conMod("constitutionScore") ? conMod("constitutionScore"): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" name="intelligenceMod" type="number"
-					value="<?php echo intMod("intelligenceScore") ? intMod("intelligenceScore"): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" name="wisdomMod" type="number"
-					value="<?php echo wisMod("wisdomScore") ? wisMod("wisdomScore"): ""; ?>" readonly/>
-					<br />
-					<br />
-					<input class="score" name="charismaMod" type="number"
-					value="<?php echo chaMod("charismaScore") ? chaMod("charismaScore"): ""; ?>" readonly/>
+					<?php scoreMod("strenghtMod","strenghtScore"); ?>
+					<?php scoreMod("dexterityMod","dexterityScore"); ?>
+					<?php scoreMod("constitutionMod","constitutionScore"); ?>
+					<?php scoreMod("intelligenceMod","intelligenceScore"); ?>
+					<?php scoreMod("wisdomMod","wisdomScore"); ?>
+					<?php scoreMod("charismaMod","charismaScore"); ?>
 				</div>
 			</div>
 			<div class="2u 12u(narrower)">
@@ -232,28 +205,40 @@ foreach ($results as $option):
 				<div class="form-group skills">
 					<br />
 					<?php 
-					$skill = $connection->prepare("select * from skill;");
+					$skill = $connection->prepare("select * from skill limit 9;");
 					$skill->execute();
 					$results = $skill->fetchAll(PDO::FETCH_OBJ);
 					foreach ($results as $option):
 					?>
-					<input id="skill" value="<?php echo $option->id ?>"
+					<input id="<?php echo $option->name ?>" value="<?php echo $option->id ?>"
 					name="skills[]" <?php echo checkboxMark("skills","$option->id") ?> type="checkbox"></>
-					<label for="<?php echo $option->id ?>"><?php echo $option->name . "<br />"; ?></label>					
+					<label for="<?php echo $option->name ?>"><?php echo $option->name . "<br />"; ?></label>					
 					<?php endforeach; ?>
 				</div>
 			</div>
 			<div class="2u 12u(narrower)">
-					
-			</div>
-			<div class="12u -12u 12u(narrower)">
-				<div class="form-group">
-					<input type="submit" value="Preview Character">
+					<div class="form-group skills">
+					<br /><br />
+					<?php 
+					$skill = $connection->prepare("select * from skill limit 9,10;");
+					$skill->execute();
+					$results = $skill->fetchAll(PDO::FETCH_OBJ);
+					foreach ($results as $option):
+					?>
+					<input id="<?php echo $option->name ?>" value="<?php echo $option->id ?>"
+					name="skills[]" <?php echo checkboxMark("skills","$option->id") ?> type="checkbox"></>
+					<label for="<?php echo $option->name ?>"><?php echo $option->name . "<br />"; ?></label>					
+					<?php endforeach; ?>
 				</div>
 			</div>
 			<div class="12u -12u 12u(narrower)">
 				<div class="form-group">
-					<input type="submit" value="Save Character">
+					<input type="submit" value="Preview Character" name="preview">
+				</div>
+			</div>
+			<div class="12u -12u 12u(narrower)">
+				<div class="form-group">
+					<input type="submit" value="Save Character" name="submit">
 				</div>
 			</div>
 		</div>
