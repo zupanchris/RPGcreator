@@ -70,7 +70,7 @@
 							<td><?php echo $option->Background ?></td>
 							<td><?php echo $option->Username ?></td>
 							<td>
-							<a href="<?php echo $sourceAPP; ?>creator/download.php" target = "_blank">
+							<a href="<?php echo $sourceAPP; ?>creator/download.php<?php echo '?characterID=' . $option->ID; ?>" target = "_blank">
 								<button class="button special small">
 								Download
 							</button>
