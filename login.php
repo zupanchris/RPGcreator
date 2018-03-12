@@ -16,7 +16,6 @@ include_once "config.php";
 
 			<!-- Header -->
 			<header id="header">
-				<h1 id="logo"><a href="<?php echo $sourceAPP; ?>"><img src="images/headline.png" height="60" /img></a></h1>
 				<?php
 				include_once "include/menu.php";
  ?>

@@ -1,6 +1,9 @@
 <?php include_once "../config.php";
-validation();
-?>
+if(isset($_SESSION[$appID."authorized"]) && $_SESSION["admin"]){
+
+}else{
+header("location: " . $GLOBALS["sourceAPP"]);
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

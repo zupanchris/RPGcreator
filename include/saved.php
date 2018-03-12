@@ -31,10 +31,39 @@
 	</section>
 	
 	<?php
-	$insert = $connection->prepare("insert into characterdnd (name,subrace,class,background,alingment,user)
-	values ('" . ucfirst($_GET["characterName"]) . "'," . $_GET["characterSubrace"] . "," . $_GET["characterClass"] . ",
-	" . $_GET["characterBackground"] . "," . $_GET["characterAlingment"] . "," . rand(1,20000) . ")");
-	$insert->execute($_POST); ?>
+	$insert = $connection->prepare("insert into characterdnd (name,subrace,class,background,alingment,user,
+									strenghtScore,strenghtMod,dexterityScore,dexterityMod,constitutionScore,constitutionMod,
+									intelligenceScore,intelligenceMod,wisdomScore,wisdomMod,charismaScore,charismaMod)
+	values (:characterName,:characterSubrace,:characterClass,
+	:characterBackground,:characterAlingment,:user,
+	:strenghtScore,:strenghtMod,:dexterityScore,:dexterityMod,:constitutionScore,:constitutionMod,
+	:intelligenceScore,:intelligenceMod,:wisdomScore,:wisdomMod,:charismaScore,:charismaMod)");
+	
+	
+	//	values ('" . ucfirst($_GET["characterName"]) . "'," . $_GET["characterSubrace"] . "," . $_GET["characterClass"] . ",
+	//" . $_GET["characterBackground"] . "," . $_GET["characterAlingment"] . "," . rand(1,20000) . ")");
+	
+	$insert->execute(array(
+	"characterName" => $_GET["characterName"],
+	"characterSubrace" => $_GET["characterSubrace"],
+	"characterClass" => $_GET["characterClass"],
+	"characterBackground" => $_GET["characterBackground"],
+	"characterAlingment" => $_GET["characterAlingment"],
+	"user" => $_SESSION[$appID."authorized"]->id,
+	"strenghtScore" => $_GET["strenghtScore"],
+	"strenghtMod" => $_GET["strenghtMod"],
+	"dexterityScore" => $_GET["dexterityScore"],
+	"dexterityMod" => $_GET["dexterityMod"],
+	"constitutionScore" => $_GET["constitutionScore"],
+	"constitutionMod" => $_GET["constitutionMod"],
+	"intelligenceScore" => $_GET["intelligenceScore"],
+	"intelligenceMod" => $_GET["intelligenceMod"],
+	"wisdomScore" => $_GET["wisdomScore"],
+	"wisdomMod" => $_GET["wisdomMod"],
+	"charismaScore" => $_GET["charismaScore"],
+	"charismaMod" => $_GET["charismaMod"]
+	)); ?>
+
 </form>
 <div class="12u -12u 12u(narrower)">
 <div class="form-group">

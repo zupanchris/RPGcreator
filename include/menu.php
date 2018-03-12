@@ -2,12 +2,12 @@
 <nav id="nav">
 <ul>
 	
-	<?php 
+	<?php
 	menu($sourceAPP . "", "Home");
 	menu($sourceAPP . "creator/", "Creator");
 	menu($sourceAPP . "top/", "Top Characters");
-	if(isset($_SESSION[$appID."authorized"])):
 	menu($sourceAPP . "profile/", "Profile");	
+	if(isset($_SESSION[$appID."authorized"]) && $_SESSION["admin"]):
 	menu($sourceAPP . "private/dashboard.php", "Dashboard");?>							
 	<?php endif; ?>
 	<?php if(!isset($_SESSION[$appID."authorized"])): ?>

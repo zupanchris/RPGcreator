@@ -1,6 +1,7 @@
 <?php
 include_once "../config.php";
 validation();
+header( "refresh:2;url=../top/index.php" );
 ?>
 <!DOCTYPE HTML>
 <!--

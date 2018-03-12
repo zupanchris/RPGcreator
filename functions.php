@@ -28,7 +28,7 @@ function score($scoreType,$scoreArray){
 	?>
 	<br />
 	<br />
-	<input class="score" type="number" name="<?php echo $scoreType; ?>"
+	<input id="<?php echo $scoreType; ?>" class="score" type="number" name="<?php echo $scoreType; ?>"
 	value="<?php echo array_sum($scoreArray) ? array_sum($scoreArray): ""; ?>" readonly/>
 	<?php
 }
@@ -76,7 +76,7 @@ function scoreMod($modName,$scoreValue){
 	?>
 	<br />
 	<br />
-	<input class="score" name="<?php echo $modName; ?>" type="number"
+	<input id="<?php echo $modName; ?>" class="score" name="<?php echo $modName; ?>" type="number"
 	value="<?php echo scoreCalc("$scoreValue") ? scoreCalc("$scoreValue"): ""; ?>" readonly/>
 	<?php
 }

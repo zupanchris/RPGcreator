@@ -1,5 +1,6 @@
 <?php include_once "../config.php";
 validation();
+$pageNumber = isset($_GET["pageNumber"]) ? $_GET["pageNumber"] : 1;
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -9,9 +10,12 @@ validation();
 -->
 <html>
 	<head>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 		<?php include_once "../include/head.php"; ?>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	</head>
-	<body class="no-sidebar">
+	<body class="left-sidebar">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -22,101 +26,112 @@ validation();
 			<!-- Main -->
 				<article id="main">
 
-					<header class="special container">
-						<span class="icon fa-mobile"></span>
-						<h2>And finally there's <strong>No Sidebar</strong></h2>
-						<p>Where that in the center faces the nameless horrors alone.</p>
-					</header>
 
 					<!-- One -->
-						<section class="wrapper style4 container">
-
-							<!-- Content -->
-								<div class="content">
-									<section>
-										<a href="#" class="image featured"><img src="../images/pic04.jpg" alt="" /></a>
-										<header>
-											<h3>Dolore Amet Consequat</h3>
-										</header>
-										<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum massa. Morbi eu faucibus massa. Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
-										<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique. Sed id sem et massa ornare pellentesque. Maecenas pharetra porta accumsan. </p>
-										<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus, non hendrerit ipsum arcu tristique est.</p>
-									</section>
-								</div>
-
-						</section>
-
-					<!-- Two -->
-						<section class="wrapper style1 container special">
-							<div class="row">
+						<section class="wrapper style4 container">						
+							<div class="row 150%">
 								<div class="4u 12u(narrower)">
 
-									<section>
-										<header>
-											<h3>This is Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</section>
+									<!-- Sidebar -->
+										<div class="sidebar">
+											<section>
+												<header>
+													<h3><?php echo $_SESSION[$appID."authorized"]->username; ?></h3>
+												</header>
+												<img class="profilePicture" src="https://openclipart.org/image/2400px/svg_to_png/294182/Bearded-Man-Profile.png">
+								                <ul class="nav nav-pills nav-stacked admin-menu" >
+								                    <li class="active"><a href="" data-target-id="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+								                    <li><a href="" data-target-id="userCharacters"><i class="glyphicon glyphicon-download-alt"></i> Your Characters</a></li>
+								                    <li><a href="" data-target-id="change-password"><i class="glyphicon glyphicon-lock"></i> Change Password</a></li>
+								                    <li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
+								                </ul>
+											</section>											
+										</div>
 
 								</div>
-								<div class="4u 12u(narrower)">
+								<div class="8u 12u(narrower) important(narrower)">
 
-									<section>
-										<header>
-											<h3>Also Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</section>
-
-								</div>
-								<div class="4u 12u(narrower)">
-
-									<section>
-										<header>
-											<h3>Probably Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</section>
+									<!-- Content -->
+										<div class="content">
+											<section>
+												<?php
+												$user = $connection->prepare("select * from user where username = :username;");
+												$user->execute(array(
+												"username" => $_SESSION[$appID."authorized"]->username));
+												$results = $user->fetchAll(PDO::FETCH_OBJ);
+												foreach ($results as $option):
+													
+												include_once '../include/profile.php';
+													
+												endforeach; ?>
+											</section>
+										</div>
 
 								</div>
 							</div>
+							
 						</section>
+
+					<!-- Two -->
+						
 
 				</article>
 
 			<!-- Footer -->
 				<footer id="footer">
 
-					<ul class="icons">
-						<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
-						<li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
-					</ul>
-
-					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
+					<?php include_once "../include/footer.php"; ?>
 
 				</footer>
 
 		</div>
-<?php include_once "../include/scripts.php"; ?>
+
+		<!-- Scripts -->
+			<?php include_once "../include/scripts.php"; ?>
+			<script>	
+			
+			         $(document).ready(function()
+			      {
+			        var navItems = $('.admin-menu li > a');
+			        var navListItems = $('.admin-menu li');
+			        var allWells = $('.admin-content');
+			        var allWellsExceptFirst = $('.admin-content:not(:first)');
+			        allWellsExceptFirst.hide();
+			        navItems.click(function(e)
+			        {
+			            e.preventDefault();
+			            navListItems.removeClass('active');
+			            $(this).closest('li').addClass('active');
+			            allWells.hide();
+			            var target = $(this).attr('data-target-id');
+			            $('#' + target).show();
+			        });
+			        });
+			</script>
+<!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../js/metisMenu.min.js"></script>
+
+        <!-- DataTables JavaScript -->
+        <script src="../js/dataTables/jquery.dataTables.min.js"></script>
+        <script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="../js/startmin.js"></script>
+        
+
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+			$(document).ready(function() {
+				$('#dataTables-example').DataTable({
+					responsive : true
+				});
+			});
+        </script>
 	</body>
 </html>

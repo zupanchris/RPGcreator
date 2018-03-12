@@ -56,62 +56,41 @@ include_once "config.php";
 
 				<header class="special container">
 					<span class="icon"><img src="images/pic01.png" height="60" /img></span>
-					<h2>As this is my <strong>twentieth</strong> freebie for HTML5 UP
-					<br />
-					I decided to give it a really creative name.</h2>
-					<p>
-						Turns out <strong>Twenty</strong> was the best I could come up with. Anyway, lame name aside,
-						<br />
-						it's minimally designed, fully responsive, built on HTML5/CSS3/<strong>skel</strong>,
-						and, like all my stuff,
-						<br />
-						released for free under the <a href="http://html5up.net/license">Creative Commons Attribution 3.0</a> license. Have fun!
-					</p>
+					
 				</header>
 
 				<!-- One -->
 				<section class="wrapper style2 container special-alt">
 					<div class="row 50%">
-						<div class="8u 12u(narrower)">
+						<div class="12u 12u(narrower)">
 
 							<header>
-								<h2>Behold the <strong>icons</strong> that visualize what you’re all about. or just take up space. your call bro.</h2>
+								<h2 style="text-align: center">Check out the lates Youtube videos about D&D world</h2>
 							</header>
+						</div>
+						<div class="6u 12u(narrower)">
 							<p>
-								Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.
+								<a href="#"><iframe width="560" height="315" src="https://www.youtube.com/embed/5DHEj9nY-wo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></a>
 							</p>
 							<footer>
-								<ul class="buttons">
+								<ul class="buttons" style="text-align: center">
 									<li>
-										<a href="#" class="button">Find Out More</a>
+										<a href="https://www.youtube.com/playlist?list=PL7atuZxmT955Cw-fFS-_3IQvaCpQgDzWA" class="button">Critical Role Season 2</a>
 									</li>
 								</ul>
 							</footer>
-
 						</div>
-						<div class="4u 12u(narrower) important(narrower)">
-
-							<ul class="featured-icons">
-								<li>
-									<span class="icon fa-clock-o"><span class="label">Feature 1</span></span>
-								</li>
-								<li>
-									<span class="icon fa-volume-up"><span class="label">Feature 2</span></span>
-								</li>
-								<li>
-									<span class="icon fa-laptop"><span class="label">Feature 3</span></span>
-								</li>
-								<li>
-									<span class="icon fa-inbox"><span class="label">Feature 4</span></span>
-								</li>
-								<li>
-									<span class="icon fa-lock"><span class="label">Feature 5</span></span>
-								</li>
-								<li>
-									<span class="icon fa-cog"><span class="label">Feature 6</span></span>
-								</li>
-							</ul>
-
+						<div class="6u 12u(narrower)">
+							<p>
+								<a href="#"><<iframe width="560" height="315" src="https://www.youtube.com/embed/RinFvgNdHLs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></a>
+							</p>
+							<footer>
+								<ul class="buttons" style="text-align: center">
+									<li>
+										<a href="https://www.youtube.com/playlist?list=PLlUk42GiU2guNzWBzxn7hs8MaV7ELLCP_" class="button">Running the Game by Matt Colville</a>
+									</li>
+								</ul>
+							</footer>
 						</div>
 					</div>
 				</section>
@@ -122,12 +101,12 @@ include_once "config.php";
 						<div class="4u 12u(narrower)">
 
 							<section>
-								<span class="icon featured fa-check"></span>
 								<header>
-									<h3>This is Something</h3>
+									<h3>Maugdal Perifel</h3>
 								</header>
+								<span class="top3"><img src="images/maugdal.jpg"></span>
 								<p>
-									Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.
+									Half Elven Bard who's job is to make everyone's else life hard. Epic thief with Criminal background might be your next option.
 								</p>
 							</section>
 
@@ -135,12 +114,12 @@ include_once "config.php";
 						<div class="4u 12u(narrower)">
 
 							<section>
-								<span class="icon featured fa-check"></span>
 								<header>
-									<h3>Also Something</h3>
+									<h3>Zalvan</h3>
 								</header>
+								<span class="top3"><img src="images/zalvan.jpg"></span>
 								<p>
-									Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.
+									Halfling Ranger who's crazy about Ale and good time. Very experienced Hunter who spent half of his life wandering woods.
 								</p>
 							</section>
 
@@ -148,12 +127,12 @@ include_once "config.php";
 						<div class="4u 12u(narrower)">
 
 							<section>
-								<span class="icon featured fa-check"></span>
 								<header>
-									<h3>Probably Something</h3>
+									<h3>Arakaos</h3>
 								</header>
+								<span class="top3"><img src="images/arakos.png"></span>
 								<p>
-									Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.
+									This Tiefling Rogue is a person You don't wanna mess with. Known for his ability to detect and steal valuable items, He may be Your next choice.
 								</p>
 							</section>
 
@@ -165,60 +144,86 @@ include_once "config.php";
 				<section class="wrapper style3 container special">
 
 					<header class="major">
-						<h2>Next look at this <strong>cool stuff</strong></h2>
+						<h2>Latest <strong>Unearthed Arcana</strong> materials</h2>
 					</header>
 
 					<div class="row">
-						<div class="6u 12u(narrower)">
+						<div class="4u 12u(narrower)">
 
 							<section>
-								<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>A Really Fast Train</h3>
+									<h3>Elf Subraces</h3>
 								</header>
 								<p>
-									Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
+									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
 								</p>
 							</section>
 
 						</div>
-						<div class="6u 12u(narrower)">
+						<div class="4u 12u(narrower)">
 
 							<section>
-								<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>An Airport Terminal</h3>
+									<h3>Elf Subraces</h3>
 								</header>
 								<p>
-									Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
+									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
+								</p>
+							</section>
+
+						</div>
+						<div class="4u 12u(narrower)">
+
+							<section>
+								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
+								<header>
+									<h3>Elf Subraces</h3>
+								</header>
+								<p>
+									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
 								</p>
 							</section>
 
 						</div>
 					</div>
 					<div class="row">
-						<div class="6u 12u(narrower)">
+						<div class="4u 12u(narrower)">
 
 							<section>
-								<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>Hyperspace Travel</h3>
+									<h3>Elf Subraces</h3>
 								</header>
 								<p>
-									Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
+									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
 								</p>
 							</section>
 
 						</div>
-						<div class="6u 12u(narrower)">
+						<div class="4u 12u(narrower)">
 
 							<section>
-								<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>And Another Train</h3>
+									<h3>Elf Subraces</h3>
 								</header>
 								<p>
-									Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
+									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
+								</p>
+							</section>
+
+						</div>
+						<div class="4u 12u(narrower)">
+
+							<section>
+								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
+								<header>
+									<h3>Elf Subraces</h3>
+								</header>
+								<p>
+									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
 								</p>
 							</section>
 
@@ -228,7 +233,7 @@ include_once "config.php";
 					<footer class="major">
 						<ul class="buttons">
 							<li>
-								<a href="#" class="button">See More</a>
+								<a href="http://dnd.wizards.com/articles/unearthed-arcana" class="button">See More</a>
 							</li>
 						</ul>
 					</footer>
@@ -241,18 +246,18 @@ include_once "config.php";
 			<section id="cta">
 
 				<header>
-					<h2>Ready to do <strong>something</strong>?</h2>
+					<h2>Ready to do <strong>Join</strong>?</h2>
 					<p>
-						Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.
+						Sign In or Register below
 					</p>
 				</header>
 				<footer>
 					<ul class="buttons">
 						<li>
-							<a href="#" class="button special">Take My Money</a>
+							<a href="login.php" class="button special">Log In</a>
 						</li>
 						<li>
-							<a href="#" class="button">LOL Wut</a>
+							<a href="register.php" class="button">Register</a>
 						</li>
 					</ul>
 				</footer>

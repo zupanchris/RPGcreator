@@ -70,9 +70,12 @@
 							<td><?php echo $option->Background ?></td>
 							<td><?php echo $option->Username ?></td>
 							<td>
-							<button class="button special small" href="#">
+							<a href="<?php echo $sourceAPP; ?>creator/download.php" target = "_blank">
+								<button class="button special small">
 								Download
-							</button></td>
+							</button>
+							</a>
+							</td>
 						</tr>
 						<?php endforeach; ?>
 					</tbody>					
