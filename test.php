@@ -34,7 +34,11 @@ header( "refresh:2;url=login.php" );
 
 			<!-- Main -->
 			<article id="main">
-			Please wait...
+		<div class="row">
+			<div class="form-group" style="text-align: center">
+				<h1>Your account has been created. Enjoy!</h1>			
+			</div>
+		</div>
 			</article>
 
 

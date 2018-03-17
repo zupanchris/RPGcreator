@@ -1,6 +1,7 @@
 <?php
 
-//funkcija se zove stavkaIzbornika i prima dva parametra
+
+//prima dva parametra
 function menu($source,$description){
 
 ?>
@@ -21,6 +22,7 @@ function action(){
     else{
         echo "";
     }
+	return;
 }
 
 
@@ -81,7 +83,6 @@ function scoreMod($modName,$scoreValue){
 	<?php
 }
 
-//funckija se zove provjeraOvlasti i ne prima parametra
 function validation(){
 if(!isset($_SESSION[$GLOBALS["appID"]."authorized"])){
 header("location: " . $GLOBALS["sourceAPP"]);
@@ -113,3 +114,5 @@ return " checked=\"checked\" ";
 }
 return "";
 }
+
+

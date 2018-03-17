@@ -2,7 +2,8 @@
 	<section class="wrapper style1 container special">
 		<div class="row">
 		<div class="form-group">
-		<h2>You have created the following character</h2>
+		<h2>You've just created new Character.</h2>		
+		<br />
 		Character Name: <?php echo ucfirst($_GET["characterName"]); ?>
 		<br />
 		Player Name: <?php echo ucfirst($_GET["playerName"]); ?>
@@ -26,6 +27,8 @@
 		Wisdom Score/Modifier: <?php echo $_GET['wisdomScore'] . " / " . $_GET['wisdomMod']; ?>
 		<br />
 		Charisma Score/Modifier: <?php echo $_GET['charismaScore'] . " / " . $_GET['charismaMod']; ?>		
+		<br />
+		<h2>Your new Character will be avalible in just a moment.</h2>		
 		</div>
 		</div>
 	</section>
@@ -65,8 +68,3 @@
 	)); ?>
 
 </form>
-<div class="12u -12u 12u(narrower)">
-<div class="form-group">
-<button class="button special small" href="#">Download</button></td>
-</div>
-</div>

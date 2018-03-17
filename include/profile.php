@@ -5,7 +5,7 @@
 				<h3 class="panel-title">First Name</h3>
 			</div>
 			<div class="panel-body">
-				<?php echo isset($option->firstName) ? ucfirst($option->firstName) : ""; ?>
+				<?php echo isset($results->firstName) ? ucfirst($results->firstName) : ""; ?>
 			</div>
 		</div>
 		<div class="panel panel-info" style="margin: 1em;">
@@ -13,7 +13,7 @@
 				<h3 class="panel-title">Last Name</h3>
 			</div>
 			<div class="panel-body">
-				<?php echo isset($option->lastName) ? ucfirst($option->lastName) : ""; ?>
+				<?php echo isset($results->lastName) ? ucfirst($results->lastName) : ""; ?>
 			</div>
 		</div>
 		<div class="panel panel-info" style="margin: 1em;">
@@ -21,7 +21,7 @@
 				<h3 class="panel-title">Email</h3>
 			</div>
 			<div class="panel-body">
-				<?php echo $option->email; ?>
+				<?php echo isset($results->email) ? $results->email : ""; ?>
 			</div>
 		</div>
 		<div class="panel panel-info" style="margin: 1em;">
@@ -47,7 +47,7 @@
 				<h3 class="panel-title">User Level</h3>
 			</div>
 			<div class="panel-body">
-				<?php echo $option->level; ?>
+				<?php echo $results->level; ?>
 			</div>
 		</div>
 	</div>
@@ -66,7 +66,8 @@
 					inner join subrace c on a.subrace=c.id
 					inner join class d on a.class=d.id
 					inner join background e on a.background=e.id
-					where b.username like :username;");
+					where b.username like :username
+					order by a.id desc;");
 					$topCharacters->execute(array(
 					"username" => $_SESSION[$appID."authorized"]->username));
 					$results = $topCharacters->fetchAll(PDO::FETCH_OBJ);
@@ -110,13 +111,13 @@
 		
 	</div>
 	<div class="col-md-12  admin-content" id="settings">
-		<form action="/profile" method="post">
+		<form action="#" method="post">
 		<div class="panel panel-info" style="margin: 1em;">
 			<div class="panel-heading">
 				<h3 class="panel-title">First Name</h3>
 			</div>
 			<div class="panel-body">
-				<input type="text" class="form-control" name="firstNameUpdate" id="firstNameUpdate" value="<?php echo isset($option->firstName) ? $option->firstName : ""; ?>">
+				<input type="text" class="form-control" name="firstNameUpdate" id="firstNameUpdate" value="">
 			</div>
 		</div>
 		<div class="panel panel-info" style="margin: 1em;">
@@ -124,7 +125,7 @@
 				<h3 class="panel-title">Last Name</h3>
 			</div>
 			<div class="panel-body">
-				<input type="text" class="form-control" name="lastNameUpdate" id="lastNameUpdate" value="<?php echo isset($option->lastName) ? $option->lastName : ""; ?>">
+				<input type="text" class="form-control" name="lastNameUpdate" id="lastNameUpdate" value="">
 			</div>
 		</div>
 		<div class="panel panel-info" style="margin: 1em;">
@@ -132,7 +133,7 @@
 				<h3 class="panel-title">Email</h3>
 			</div>
 			<div class="panel-body">
-				<input type="email" class="form-control" name="emailUpdate" id="emailUpdate" value="<?php echo isset($option->email) ? $option->email : ""; ?>">
+				<input type="email" class="form-control" name="emailUpdate" id="emailUpdate" value="">
 			</div>
 		</div>
 			<div class="panel panel-info border" style="margin: 1em;">
@@ -143,21 +144,29 @@
 						</div>
 					</div>
 				</div>
-			</div>			
-		</form>
+			</div>
+		</form>		
+	</div>
+	
+	<div class="col-md-12  admin-content" id="profilePicture">
+		
+			<img class="profilePicture" id="image">				
+			<input type="file" id="inputImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">            
+        	<hr />
+			<a class="button small" href="#" id="saveProfilePicture">Preview</a>			
+			<a class="button small" href="index.php">Finish</a>	
 	</div>
 
 	<div class="col-md-12  admin-content" id="change-password">
-		<form action="/password" method="post">
-
+		<form action="#" method="post">
 			<div class="panel panel-info" style="margin: 1em;">
 				<div class="panel-heading">
-					<h3 class="panel-title"><label for="old_password" class="control-label panel-title">Old Password</label></h3>
+					<h3 class="panel-title"><label for="oldPassword" class="control-label panel-title">Old Password</label></h3>
 				</div>
 				<div class="panel-body">
 					<div class="form-group">
 						<div class="col-sm-10">
-							<input type="password" class="form-control" name="password" id="new_password" >
+							<input type="password" class="form-control" name="oldPassword" id="oldPassword" >
 						</div>
 					</div>
 
@@ -166,12 +175,12 @@
 
 			<div class="panel panel-info" style="margin: 1em;">
 				<div class="panel-heading">
-					<h3 class="panel-title"><label for="new_password" class="control-label panel-title">New Password</label></h3>
+					<h3 class="panel-title"><label for="newPassword" class="control-label panel-title">New Password</label></h3>
 				</div>
 				<div class="panel-body">
 					<div class="form-group">
 						<div class="col-sm-10">
-							<input type="password" class="form-control" name="password" id="new_password" >
+							<input type="password" class="form-control" name="newPassword" id="newPassword" >
 						</div>
 					</div>
 
@@ -180,12 +189,12 @@
 
 			<div class="panel panel-info" style="margin: 1em;">
 				<div class="panel-heading">
-					<h3 class="panel-title"><label for="confirm_password" class="control-label panel-title">Confirm Password</label></h3>
+					<h3 class="panel-title"><label for="passwordConfirm" class="control-label panel-title">Confirm Password</label></h3>
 				</div>
 				<div class="panel-body">
 					<div class="form-group">
 						<div class="col-sm-10">
-							<input type="password" class="form-control" name="password_confirmation" id="confirm_password" >
+							<input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" >
 						</div>
 					</div>
 				</div>
@@ -200,7 +209,6 @@
 					</div>
 				</div>
 			</div>
-
-		</form>
-	</div>
+		</form>	
+	</div>	
 </div>
