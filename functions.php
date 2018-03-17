@@ -85,7 +85,7 @@ function scoreMod($modName,$scoreValue){
 
 function validation(){
 if(!isset($_SESSION[$GLOBALS["appID"]."authorized"])){
-header("location: " . $GLOBALS["sourceAPP"]);
+header("location:  ../login.php");
 }
 }
 
