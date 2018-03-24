@@ -169,10 +169,35 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 			  	$("#savingThrows").html("");
 			  	var niz = jQuery.parseJSON(vratioServer);
 			  	$( niz ).each(function(index,objekt) {			  	
-			  	if(objekt.checkbox==true){
-					$("#savingThrows").append("<input checked=\"checked\" id=\"" + objekt.name + "ST" + "\" value=\"" + objekt.id + "\" name=\"" + objekt.name + "ST" + "\" type=\"checkbox\"></><label for=\"" + objekt.name + "ST" + "\">" + objekt.name + "</label><br />");
+			  	if(objekt.Strenght==true){
+					$("#savingThrows").append("<input checked=\"checked\" id=\"StrenghtST\" value=\"" + objekt.id + "\" name=\"StrenghtST\" type=\"checkbox\"></><label for=\"StrenghtST\">Strenght</label><br />");
 				}else{
-					$("#savingThrows").append("<input id=\"" + objekt.name + "ST" + "\" value=\"" + objekt.id + "\" name=\"" + objekt.name + "ST" + "\" type=\"checkbox\"></><label for=\"" + objekt.name + "ST" + "\">" + objekt.name + "</label><br />");
+					$("#savingThrows").append("<input id=\"StrenghtST\" value=\"" + objekt.id + "\" name=\"StrenghtST\" type=\"checkbox\"></><label for=\"StrenghtST\">Strenght</label><br />");
+				}			  	
+			  	if(objekt.Dexterity==true){
+					$("#savingThrows").append("<input checked=\"checked\" id=\"DexterityST\" value=\"" + objekt.id + "\" name=\"DexterityST\" type=\"checkbox\"></><label for=\"DexterityST\">Dexterity</label><br />");
+				}else{
+					$("#savingThrows").append("<input id=\"DexterityST\" value=\"" + objekt.id + "\" name=\"DexterityST\" type=\"checkbox\"></><label for=\"DexterityST\">Dexterity</label><br />");
+				}			  	
+			  	if(objekt.Constitution==true){
+					$("#savingThrows").append("<input checked=\"checked\" id=\"ConstitutionST\" value=\"" + objekt.id + "\" name=\"ConstitutionST\" type=\"checkbox\"></><label for=\"ConstitutionST\">Constitution</label><br />");
+				}else{
+					$("#savingThrows").append("<input id=\"ConstitutionST\" value=\"" + objekt.id + "\" name=\"ConstitutionST\" type=\"checkbox\"></><label for=\"ConstitutionST\">Constitution</label><br />");
+				}			  	
+			  	if(objekt.Intelligence==true){
+					$("#savingThrows").append("<input checked=\"checked\" id=\"IntelligenceST\" value=\"" + objekt.id + "\" name=\"IntelligenceST\" type=\"checkbox\"></><label for=\"IntelligenceST\">Intelligence</label><br />");
+				}else{
+					$("#savingThrows").append("<input id=\"IntelligenceST\" value=\"" + objekt.id + "\" name=\"IntelligenceST\" type=\"checkbox\"></><label for=\"IntelligenceST\">Intelligence</label><br />");
+				}			  	
+			  	if(objekt.Wisdom==true){
+					$("#savingThrows").append("<input checked=\"checked\" id=\"WisdomST\" value=\"" + objekt.id + "\" name=\"WisdomST\" type=\"checkbox\"></><label for=\"WisdomST\">Wisdom</label><br />");
+				}else{
+					$("#savingThrows").append("<input id=\"WisdomST\" value=\"" + objekt.id + "\" name=\"WisdomST\" type=\"checkbox\"></><label for=\"WisdomST\">Wisdom</label><br />");
+				}			  	
+			  	if(objekt.Charisma==true){
+					$("#savingThrows").append("<input checked=\"checked\" id=\"CharismaST\" value=\"" + objekt.id + "\" name=\"CharismaST\" type=\"checkbox\"></><label for=\"CharismaST\">Charisma</label><br />");
+				}else{
+					$("#savingThrows").append("<input id=\"CharismaST\" value=\"" + objekt.id + "\" name=\"CharismaST\" type=\"checkbox\"></><label for=\"CharismaST\">Charisma</label><br />");
 				}
 				});
 				
@@ -188,11 +213,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 			  success: function(vratioServer){			  		
 			  	$("#skills").html("");
 			  	var niz = jQuery.parseJSON(vratioServer);
-			  	$( niz ).each(function(index,objekt) {	  	
+			  	$( niz ).each(function(index,objekt) {
+			  	var ime = objekt.name.replace(/ /g,''); 	
 			  	if(objekt.checkbox==true){
-					$("#skills").append("<input checked=\"checked\" id=\"" + objekt.name + "Skill" + "\" value=\"" + objekt.id + "\" name=\"" + objekt.name + "Skill" + "\" type=\"checkbox\"></><label for=\"" + objekt.name + "Skill" + "\">" + objekt.name + "</label><br />");
+					$("#skills").append("<input checked=\"checked\" id=\"" + objekt.name + "Skill" + "\" name=\"" + ime + "Skill" + "\" type=\"checkbox\"></><label for=\"" + objekt.name + "Skill" + "\">" + objekt.name + "</label><br />");
 				}else{
-					$("#skills").append("<input id=\"" + objekt.name + "Skill" + "\" value=\"" + objekt.id + "\" name=\"" + objekt.name + "Skill" + "\" type=\"checkbox\"></><label for=\"" + objekt.name + "Skill" + "\">" + objekt.name + "</label><br />");
+					$("#skills").append("<input id=\"" + objekt.name + "Skill" + "\" name=\"" + ime + "Skill" + "\" type=\"checkbox\"></><label for=\"" + objekt.name + "Skill" + "\">" + objekt.name + "</label><br />");
+					console.log(ime + "Skill");
 				}
 				});
 				

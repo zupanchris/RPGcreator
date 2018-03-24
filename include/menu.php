@@ -3,10 +3,11 @@
 <ul>
 	
 	<?php
-	menu($sourceAPP . "", "Home");
-	menu($sourceAPP . "creator/", "Creator");
-	menu($sourceAPP . "top/", "Top Characters");
-	menu($sourceAPP . "profile/", "Profile");	
+	menu($sourceAPP . "index.php", "Home");
+	menu($sourceAPP . "creator/index.php", "Creator");
+	menu($sourceAPP . "top/index.php", "Top Characters");
+	menu($sourceAPP . "profile/index.php", "Profile");
+	menu($sourceAPP . "era.php", "ERA");
 	if(isset($_SESSION[$appID."authorized"]) && $_SESSION["admin"]):
 	menu($sourceAPP . "private/dashboard.php", "Dashboard");?>							
 	<?php endif; ?>

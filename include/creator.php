@@ -8,11 +8,7 @@
 					<label>Character Name</label>
 					<br />
 					<input type="text" name="characterName"
-					value="<?php echo getValue("characterName") ? getValue("characterName") : "Grayhawk"; ?>" required />
-					<label>Player Name</label>
-					<br />
-					<input type="text" name="playerName"
-					value="<?php echo getValue("playerName") ? getValue("playerName") : $_SESSION[$appID."authorized"]->username; ?>" required />			
+					value="<?php echo getValue("characterName") ? getValue("characterName") : "Grayhawk"; ?>" required />		
 				</div>
 				<div class="form-group">
 					<label for="characterRace"><strong>Race</strong></label>
