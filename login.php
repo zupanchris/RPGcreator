@@ -1,5 +1,7 @@
 <?php
 include_once "config.php";
+
+$validation = session_id();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -22,7 +24,7 @@ include_once "config.php";
 			</header>
 
 			<!-- Main -->
-			<article id="main">
+			<article id="main">	
 			<?php include_once "include/login_form.php"; ?>
 			</article>
 

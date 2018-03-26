@@ -6,7 +6,7 @@ if(!isset($_POST["username"]) || !isset($_POST["password"])){
 
 include_once 'config.php';
 $login=$connection->prepare("select * from user where 
-						username=:username and password=md5(:password)");
+						username=:username and password=md5(:password) and active=true");
 $login->execute($_POST);
 $o = $login->fetch(PDO::FETCH_OBJ);
 

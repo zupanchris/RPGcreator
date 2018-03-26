@@ -68,7 +68,7 @@ inner join class d on a.class=d.id
 inner join subrace e on a.subrace=e.id
 inner join race f on e.race=f.id
 inner join user g on a.user=g.id
-inner join characterSkills h on h.characterdnd=a.id
+inner join characterskills h on h.characterdnd=a.id
 inner join savingthrow i on i.class=d.id
 inner join proficiency j on j.class=d.id
 where a.id= :characterID and h.characterdnd= :characterID;");

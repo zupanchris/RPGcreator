@@ -1,6 +1,6 @@
 <div class="wrapper">
 	<div class="container">
-		<form class="form" action="test.php" method="post">
+		<form class="form" action="registermail.php" method="post">
 			<input type="text" placeholder="First name" id="firstName"  name= "firstName" value="<?php
 			if (isset($_GET["firstName"])) {
 				echo $_GET["firstName"];

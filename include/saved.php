@@ -79,10 +79,10 @@
 	:strenghtScore,:strenghtMod,:dexterityScore,:dexterityMod,:constitutionScore,:constitutionMod,
 	:intelligenceScore,:intelligenceMod,:wisdomScore,:wisdomMod,:charismaScore,:charismaMod);
 	
-	insert into characterSkills
-	(characterdnd, Acrobatics, AnimalHandling, Arcana, Athletics, Deception, History, Insight, Intimidation, Investigation,
+	insert into characterskills
+	(id,characterdnd, Acrobatics, AnimalHandling, Arcana, Athletics, Deception, History, Insight, Intimidation, Investigation,
 	Medicine, Nature, Perception, Performance, Persuasion, Religion, SleightOfHand, Stealth, Survival) values
-	(LAST_INSERT_ID(),:AcrobaticsSkill,:AnimalHandlingSkill,:ArcanaSkill,:AthleticsSkill,:DeceptionSkill,:HistorySkill,:InsightSkill,
+	(null,LAST_INSERT_ID(),:AcrobaticsSkill,:AnimalHandlingSkill,:ArcanaSkill,:AthleticsSkill,:DeceptionSkill,:HistorySkill,:InsightSkill,
 	:IntimidationSkill,:InvestigationSkill,:MedicineSkill,:NatureSkill,:PerceptionSkill,:PerformanceSkill,
 	:PersuasionSkill,:ReligionSkill,:SleightOfHandSkill,:StealthSkill,:SurvivalSkill);
 	

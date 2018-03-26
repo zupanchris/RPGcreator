@@ -85,7 +85,7 @@ function scoreMod($modName,$scoreValue){
 
 function validation(){
 if(!isset($_SESSION[$GLOBALS["appID"]."authorized"])){
-header("location:  ../login.php");
+header("location: " . $GLOBALS["sourceAPP"] . "login.php");
 }
 }
 
@@ -115,4 +115,27 @@ return " checked=\"checked\" ";
 return "";
 }
 
-
+function sendEmail($mail,$primatelji,$naslov,$poruka){
+	date_default_timezone_set('Etc/UTC');
+	$mail->isSMTP();
+	$mail->SMTPDebug = 0;
+	$mail->Debugoutput = 'html';
+	$mail->Host = 'smtp.gmail.com';
+	$mail->Port = 587;
+	$mail->SMTPSecure = 'tls';
+	$mail->SMTPAuth = true;
+	$mail->Username = "edunovaapp@gmail.com";
+	$mail->Password = "Edunovaapp.16";
+	$mail->setFrom('edunovaapp@gmail.com', 'RPG Character Creator');
+	foreach ($primatelji as $primatelj) {
+		$mail->addAddress($primatelj["email"], $primatelj["name"]);
+	}
+	$mail->Subject = $naslov;
+	$mail->msgHTML($poruka);
+	$mail->AltBody = $poruka;
+	if (!$mail->send()) {
+	    return"Mailer Error: " . $mail->ErrorInfo;
+	} else {
+	   return "OK";
+	}
+}

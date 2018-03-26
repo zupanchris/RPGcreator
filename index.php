@@ -65,12 +65,12 @@ include_once "config.php";
 						<div class="12u 12u(narrower)">
 
 							<header>
-								<h2 style="text-align: center">Check out the lates Youtube videos about D&D world</h2>
+								<h2 style="text-align: center">Check out the latest Youtube videos about D&D world</h2>
 							</header>
 						</div>
 						<div class="6u 12u(narrower)">
 							<p>
-								<a href="#"><iframe width="560" height="315" src="https://www.youtube.com/embed/5DHEj9nY-wo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></a>
+								<a href="#"><iframe max-width="560"  max-height="480" width=100% height="300" src="https://www.youtube.com/embed/5DHEj9nY-wo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></a>
 							</p>
 							<footer>
 								<ul class="buttons" style="text-align: center">
@@ -82,7 +82,7 @@ include_once "config.php";
 						</div>
 						<div class="6u 12u(narrower)">
 							<p>
-								<a href="#"><<iframe width="560" height="315" src="https://www.youtube.com/embed/RinFvgNdHLs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></a>
+								<a href="#"><iframe max-width="560"  max-height="480" width=100% height="300" src="https://www.youtube.com/embed/RinFvgNdHLs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></a>
 							</p>
 							<footer>
 								<ul class="buttons" style="text-align: center">
@@ -96,49 +96,6 @@ include_once "config.php";
 				</section>
 
 				<!-- Two -->
-				<section class="wrapper style1 container special">
-					<div class="row">
-						<div class="4u 12u(narrower)">
-
-							<section>
-								<header>
-									<h3>Maugdal Perifel</h3>
-								</header>
-								<span class="top3"><img src="images/maugdal.jpg"></span>
-								<p>
-									Half Elven Bard who's job is to make everyone's else life hard. Epic thief with Criminal background might be your next option.
-								</p>
-							</section>
-
-						</div>
-						<div class="4u 12u(narrower)">
-
-							<section>
-								<header>
-									<h3>Zalvan</h3>
-								</header>
-								<span class="top3"><img src="images/zalvan.jpg"></span>
-								<p>
-									Halfling Ranger who's crazy about Ale and good time. Very experienced Hunter who spent half of his life wandering woods.
-								</p>
-							</section>
-
-						</div>
-						<div class="4u 12u(narrower)">
-
-							<section>
-								<header>
-									<h3>Arakaos</h3>
-								</header>
-								<span class="top3"><img src="images/arakos.png"></span>
-								<p>
-									This Tiefling Rogue is a person You don't wanna mess with. Known for his ability to detect and steal valuable items, He may be Your next choice.
-								</p>
-							</section>
-
-						</div>
-					</div>
-				</section>
 
 				<!-- Three -->
 				<section class="wrapper style3 container special">
@@ -153,11 +110,9 @@ include_once "config.php";
 							<section>
 								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>Elf Subraces</h3>
+									<h3>INTO THE WILD</h3>
 								</header>
-								<p>
-									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
-								</p>
+								<p>This month, Unearthed Arcana wanders into the wilderness, with new ways to approach outdoor exploration. Later this month, a survey on this material will appear on the D&D website. Please let us know in that...</p>
 							</section>
 
 						</div>
@@ -166,11 +121,9 @@ include_once "config.php";
 							<section>
 								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>Elf Subraces</h3>
+									<h3>THREE SUBCLASSES</h3>
 								</header>
-								<p>
-									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
-								</p>
+								<p>We kick off 2018 with three new subclasses to try out in Unearthed Arcana: the Circle of Spores for the druid, the Brute for the fighter, and the School of Invention for the wizard. Later this month, a survey on these...</p>
 							</section>
 
 						</div>
@@ -179,7 +132,7 @@ include_once "config.php";
 							<section>
 								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>Elf Subraces</h3>
+									<h3>ELF SUBRACES</h3>
 								</header>
 								<p>
 									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
@@ -194,11 +147,9 @@ include_once "config.php";
 							<section>
 								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>Elf Subraces</h3>
+									<h3>FIENDISH OPTIONS</h3>
 								</header>
-								<p>
-									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
-								</p>
+								<p>In time for the lengthening shadows of autumn, we present a collection of fiendish options for you to playtest: new subraces for tieflings, ways to customize diabolical cults, and demonic boons that wicked NPCs can...</p>
 							</section>
 
 						</div>
@@ -207,11 +158,9 @@ include_once "config.php";
 							<section>
 								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>Elf Subraces</h3>
+									<h3>RACE OPTIONS: ELADRIN AND GITH</h3>
 								</header>
-								<p>
-									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
-								</p>
+								<p>Two race options debut in this month’s Unearthed Arcana: eladrin (an elf subrace) and gith. This eladrin is an alternative to the version of the subrace that appears in the Dungeon Master’s Guide....</p>
 							</section>
 
 						</div>
@@ -220,11 +169,9 @@ include_once "config.php";
 							<section>
 								<a href="http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces" class="image featured"><img src="images/ua.jpg" alt="" /></a>
 								<header>
-									<h3>Elf Subraces</h3>
+									<h3>THREE-PILLAR EXPERIENCE</h3>
 								</header>
-								<p>
-									After the positive response to the eladrin a couple of months ago in Unearthed Arcana, we decided to explore four more elf subraces: avariel (winged elves), grugach (the wild elves of Greyhawk), sea elves, and shadar...
-								</p>
+								<p>Three pillars of adventuring make up the D&D game: exploration, social interaction, and combat. But when it comes to earning experience, the combat pillar often supports most of the game’s weight.</p>
 							</section>
 
 						</div>

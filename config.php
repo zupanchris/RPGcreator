@@ -10,9 +10,9 @@ $appID = "RPGcharacterAPP";
 $pageResults = 8;
 
 if($_SERVER["HTTP_HOST"]==="zupanc.byethost3.com"){
-	$host="sql204.byethost3.com";
-	$dbname="b3_21045350_dndchar";
-	$dbuser="b3_21045350";
+	$host="sv80.ifastnet.com";
+	$dbname="zupancby_dndchar";
+	$dbuser="zupancby_zupanc";
 	$dbpass="cird.46P";
 	$dev=false;
 }else{
