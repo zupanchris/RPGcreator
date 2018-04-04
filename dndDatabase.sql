@@ -345,33 +345,7 @@ INSERT INTO `skill` VALUES (1,1,'Acrobatics',0,NULL),(2,1,'Animal Handling',0,NU
 /*!40000 ALTER TABLE `skill` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `subclass`
---
 
-DROP TABLE IF EXISTS `subclass`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `subclass` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `class` int(11) NOT NULL,
-  `name` varchar(250) COLLATE utf8_croatian_ci NOT NULL,
-  `feature` varchar(250) COLLATE utf8_croatian_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `class` (`class`),
-  CONSTRAINT `subclass_ibfk_1` FOREIGN KEY (`class`) REFERENCES `class` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `subclass`
---
-
-LOCK TABLES `subclass` WRITE;
-/*!40000 ALTER TABLE `subclass` DISABLE KEYS */;
-INSERT INTO `subclass` VALUES (1,1,'Path of Berserker','Frenzy'),(2,1,'Path of Totem Warrior','Spirit Seeker, Totem Spirit'),(3,2,'College of Lore','Bonus Proficiencies, Cutting Words'),(4,2,'College of Valor','Bonus Proficiencies, Combat Inspiration'),(5,3,'Knowledge Domain','Domain Spells, Blessing of Knowledge, Channel Divinity: Knowledge of the Ages'),(6,3,'Life Domain','Domain Spells, Bonus Proficiency, Disciple of Life, Channel Divinity: Preserve Life'),(7,3,'Light Domain','Domain Spells, Bonus Cantrip, Warding Flare, Channel Divinity: Radiance of the Dawn'),(8,3,'Nature Domain','Domain Spells, Acolyte of Nature, Bonus Proficiency, Channel Divinity: Charm Animals and Plants'),(9,3,'Tempest Domain','Domain Spells, Bonus Proficiencies, Wrath of the Storm, Channel Divinity: Destructive Wrath'),(10,3,'Trickery Domain','Domain Spells, Blessing of the Trickster, Channel Divinity: Invoke Duplicity'),(11,3,'War Domain','Domain Spells, Bonus Proficiencies, War Priest, Channel Divinity: Guided Strike'),(12,4,'Circle of the Land','Circle Spells, Bonus Cantrip, Natural Recovery'),(13,4,'Circle of the Moon','Combat Wild Shapes, Circle Forms'),(14,5,'Champion','Improved Critical'),(15,5,'Battle Master','Combat Superiority, Student of War'),(16,5,'Eldritch Knight','Spellcasting, Weapon Bond'),(17,6,'Way of the Open Hand','Open Hand Technique'),(18,6,'Way of Shadow','Shadow Arts'),(19,6,'Way of the Four Elements','Disciple of the Elements'),(20,7,'Oath of Devotion','Oath Spells, Channel Divinity, Tenets of Devotion'),(21,7,'Oath of Ancients','Oath Spells, Channel Divinity, Tenets of Ancients'),(22,7,'Oath of Vengeance','Oath Spells, Channel Divinity, Tenets of Vengeance'),(23,8,'Hunter','Hunters Pray'),(24,8,'Beast Master','Rangers Companion'),(25,9,'Thief','Fast Hands, Second-Story Work'),(26,9,'Assassin','Bonus Proficiencies, Assassinate'),(27,9,'Arcane Trickster','Spellcasting, Mage Hand Legerdemain'),(28,10,'Draconic Bloodline','Dragon Ancestor, Draconic Resilience'),(29,10,'Wild Magic','Wild Magic Surge, Tides of Chaos'),(30,11,'The Archfey','Expanded Spell List, Fey Presence'),(31,11,'The Fiend','Expended Spell List, Dark Ones Blessing'),(32,11,'The Great Old One','Expended Spell List, Awakened Mind'),(33,12,'School of Abjuration','Abjuration Savant, Arcane Ward'),(34,12,'School of Conjuration','Conjuration Savant, Minor Conjuration'),(35,12,'School of Divination','Divination Savant, Portent'),(36,12,'School of Enchantment','Enchantment Savant, Hypnotic Gaze'),(37,12,'School of Evocation','Evocation Savant, Sculpt Spells'),(38,12,'School of Illusion','Illusion Savant, Improved Minor Illusion'),(39,12,'School of Necromancy','Necromancy Savant, Grim Harvest'),(40,12,'School of Transmutation','Transmutation Savant, Minor Alchemy');
-/*!40000 ALTER TABLE `subclass` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `subrace`

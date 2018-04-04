@@ -1,4 +1,4 @@
-<h1 id="logo"><a href="<?php echo $sourceAPP; ?>"><img src="<?php echo $sourceAPP; ?>/images/headline.png" height="60" /img></a></h1>
+<h1 id="logo"><a href="<?php echo $sourceAPP; ?>"><img src="<?php echo $sourceAPP; ?>images/headline.png" height="60" /img></a></h1>
 <nav id="nav">
 <ul>
 	

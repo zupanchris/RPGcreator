@@ -49,7 +49,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="<?php echo $sourceAPP; ?>logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
@@ -71,7 +71,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="<?php echo "$sourceAPP" . "private/dashboard.php"; ?>" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Registered Users<span class="fa arrow"></span></a>

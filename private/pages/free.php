@@ -1,15 +1,18 @@
 <?php
 include_once "../../config.php";
 validation();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <?php
 		include_once '../include/head.php';
- ?>
-    	<script src="../js/vendor/fontawesome/fontawesome-all.min.js"></script>
-    </head>
+ ?>   
+ 
+     	
+        <script src="../js/vendor/fontawesome/fontawesome-all.min.js"></script>
+</head>
     <body>
 
         <div id="wrapper">
@@ -58,15 +61,17 @@ validation();
 										?>                                     	
                                             <tr>
                                             	<td><?php echo $option -> id; ?></td>                                           	
-                                                <td><?php echo $option -> username; ?></td>
+                                                <td style="color:<?php echo $option->active==false ? "red" : ""; ?>;"><?php echo $option -> username; ?></td>
                                                 <td><?php echo $option -> email; ?></td>
                                                 <td><?php echo $option -> firstName; ?></td>
                                                 <td><?php echo $option -> lastName; ?></td>
                                                 <td>
-                                                	<a href="#" title="Edit"><i class="far fa-edit"></i></a>
-													<a href="#" title="Delete"><i class="far fa-trash-alt"></i></a>
-													<a href="#" title="Ban"><i class="fas fa-ban" style="color: #b74d4d"></i></a>
- 
+													<a href="delete.php?id=<?php echo $option->id ?>" title="Delete"><i class="far fa-trash-alt 3x"></i></a>
+													<?php if($option->active==true): ?>
+													<a href="ban.php?id=<?php echo $option->id ?>" title="Ban"><i class="fas fa-ban 3x" style="color: #b74d4d"></i></a>
+													<?php else: ?>
+													<a href="activate.php?id=<?php echo $option->id ?>" title="Activate"><i class="fas fa-check 3x" style="color: #00b33c"></i></a>
+ 													<?php endif; ?>
                                                 </td>  
                                             </tr>  
                                         <?php endforeach; ?>  

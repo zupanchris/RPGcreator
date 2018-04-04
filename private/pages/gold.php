@@ -8,7 +8,8 @@ validation();
         <?php
 		include_once '../include/head.php';
  ?>
-    	<script src="../js/vendor/fontawesome/fontawesome-all.min.js"></script>
+ 
+        <script src="../js/vendor/fontawesome/fontawesome-all.min.js"></script>
     </head>
     <body>
 
